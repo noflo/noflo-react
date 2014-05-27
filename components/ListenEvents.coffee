@@ -5,7 +5,7 @@ noflo = require 'noflo'
 subscribe = (instance, out) ->
   instance.setProps
     emitEvent: (events, payload, metadata) ->
-      events = [events] if typeof event is 'string'
+      events = [events] if typeof events is 'string'
       out.beginGroup event for event in events
       out.send payload
       out.endGroup event for event in events
