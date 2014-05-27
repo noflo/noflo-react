@@ -1,0 +1,14 @@
+# @runtime noflo-browser
+INPORT=Load.PATH:MODULE
+INPORT=Mount.CONTAINER:CONTAINER
+INPORT=Props.PROPS:PROPS
+OUTPORT=Listen.EVENT:EVENT
+OUTPORT=Errors.OUT:ERROR
+
+Load(amd/Require) MODULE -> COMPONENT Mount(react/Mount)
+Mount INSTANCE -> INSTANCE Listen(react/ListenEvents)
+Mount INSTANCE -> INSTANCE Props(react/SetProps)
+
+# Error handling
+Load ERROR -> IN Errors(core/Merge)
+Mount ERROR -> IN Errors

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>noflo-react in browser</title>
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+    <style type="text/css">
+      #fixtures {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <div id="fixtures">
+      <div id="mount"></div>
+      <div id="render"></div>
+    </div>
+    <script src="../browser/noflo-react.js"></script>
+    <script src="http://chaijs.com/chai.js"></script>
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../bower_components/requirejs/require.js"></script>
+    <script>
+      requirejs.config({
+        packages: [
+          {
+            name: 'cs',
+            location: '../bower_components/require-cs',
+            main: 'cs'
+          },
+          {
+            name: 'coffee-script',
+            location: '../bower_components/coffee-script',
+            main: 'index'
+          },
+          {
+            name: 'React',
+            location: '../bower_components/react',
+            main: 'react'
+          }
+        ]
+      });
+    </script>
+    <script>mocha.setup('bdd');</script>
+    <script src="./Mount.js"></script>
+    <script src="./Render.js"></script>
+    <script>
+      if (window.mochaPhantomJS) {
+        mochaPhantomJS.run();
+      } else {
+        mocha.checkLeaks();
+        mocha.run();
+      }
+    </script>
+  </body>
+</html>

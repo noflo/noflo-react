@@ -1,0 +1,23 @@
+{
+  "name": "noflo-react",
+  "main": "index.js",
+  "version": "0.1.0",
+  "authors": [
+    "Henri Bergius <henri.bergius@iki.fi>"
+  ],
+  "description": "Facebook React components for NoFlo",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "~2.1.11",
+    "react": "~0.10.0",
+    "require-cs": "~0.4.4"
+  }
+}

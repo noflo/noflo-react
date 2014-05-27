@@ -1,0 +1,40 @@
+{
+  "name": "noflo-react",
+  "description": "Facebook React components for NoFlo",
+  "author": "Henri Bergius <henri.bergius@iki.fi>",
+  "repo": "noflo/noflo-react",
+  "version": "0.1.0",
+  "keywords": [],
+  "dependencies": {
+    "noflo/noflo": "*",
+    "noflo/noflo-amd": "*",
+    "noflo/noflo-core": "*"
+  },
+  "scripts": [
+    "lib/load.coffee",
+    "index.js",
+    "components/ListenEvents.coffee",
+    "components/Mount.coffee",
+    "components/SetProps.coffee",
+    "components/Unmount.coffee",
+    "graphs/Render.fbp"
+  ],
+  "noflo": {
+    "icon": "empire",
+    "components": {
+      "ListenEvents": "components/ListenEvents.coffee",
+      "Mount": "components/Mount.coffee",
+      "SetProps": "components/SetProps.coffee",
+      "Unmount": "components/Unmount.coffee"
+    },
+    "graphs": {
+      "Render": "graphs/Render.fbp"
+    }
+  },
+  "json": [
+    "component.json"
+  ],
+  "fbp": [
+    "graphs/Render.fbp"
+  ]
+}
