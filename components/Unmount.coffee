@@ -23,6 +23,8 @@ exports.getComponent = ->
         c.outPorts.error.disconnect()
         return
       out.send React.unmountComponentAtNode data
-   , 'container', 'unmounted'
+  ,
+    inPort: 'container'
+    outPort: 'unmounted'
 
   c
