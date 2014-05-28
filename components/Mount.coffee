@@ -20,21 +20,21 @@ exports.getComponent = ->
     datatype: 'object'
     required: false
 
-  mount = (data, groups, out) ->
+  mount = (data, groups, out, callback) ->
     load.getReact (err, React) ->
-      if err
-        c.outPorts.error.send err
-        c.outPorts.error.disconnect()
-        return
+      return callback err if err
 
       try
         instance = React.renderComponent data.component(), data.container
       catch e
-        c.outPorts.error.send e
-        c.outPorts.error.disconnect()
-        return
+        return callback e
       out.send instance
+      callback()
 
-  noflo.helpers.GroupComponent c, mount, ['component', 'container'], 'instance'
+  noflo.helpers.GroupedInput c,
+    in: ['component', 'container']
+    out: 'instance'
+    async: true
+  , mount
 
   c

@@ -29,8 +29,11 @@ describe 'Mount component', ->
     it 'should be able to create an instance', (done) ->
       instance.on 'data', (data) ->
         chai.expect(data).to.be.an 'object'
+      instance.on 'disconnect', ->
         chai.expect(document.querySelectorAll('#mount p').length).to.equal 1
         done()
       container.send document.getElementById 'mount'
+      container.disconnect()
       requirejs ['cs!fixtures/Basic'], (Basic) ->
         component.send Basic
+        component.disconnect()
