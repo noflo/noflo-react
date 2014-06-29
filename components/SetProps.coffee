@@ -22,6 +22,7 @@ exports.getComponent = ->
     process: (event, payload) ->
       return unless event is 'data'
       unless instance
+        return unless typeof props is 'object'
         props = payload
         return
       instance.setProps payload
