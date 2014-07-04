@@ -27,10 +27,13 @@ describe 'Mount component', ->
       chai.expect(c.outPorts.instance).to.be.an 'object'
   describe 'mounting a component', ->
     it 'should be able to create an instance', (done) ->
+      receivedData = false
       instance.on 'data', (data) ->
         chai.expect(data).to.be.an 'object'
+        receivedData = true
       instance.on 'disconnect', ->
         chai.expect(document.querySelectorAll('#mount p').length).to.equal 1
+        chai.expect(receivedData).to.be.true
         done()
       container.send document.getElementById 'mount'
       container.disconnect()
