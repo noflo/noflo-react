@@ -7,6 +7,13 @@
     "email": "henri.bergius@iki.fi",
     "url": "http://bergie.iki.fi"
   },
+  "contributors": [
+    {
+      "name": "Moritz Krog",
+      "email": "moritzkrog@gmail.com",
+      "url": "https://plus.google.com/+MoritzKrog"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/noflo/noflo-react.git"
