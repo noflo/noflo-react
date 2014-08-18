@@ -5,7 +5,10 @@ INPORT=Props.PROPS:PROPS
 OUTPORT=Listen.EVENT:EVENT
 OUTPORT=Errors.OUT:ERROR
 
-Load(amd/Require) MODULE -> COMPONENT Mount(react/Mount)
+Load(amd/Require) MODULE -> COMPONENT ConfigureComponent(react/ConfigureComponent)
+EmptyObject(strings/ParseJson) OUT -> PROPS ConfigureComponent
+'{}' -> IN EmptyObject
+ConfigureComponent CLASS -> COMPONENT Mount(react/Mount)
 Mount INSTANCE -> INSTANCE Listen(react/ListenEvents)
 Mount INSTANCE -> INSTANCE Props(react/SetProps)
 
