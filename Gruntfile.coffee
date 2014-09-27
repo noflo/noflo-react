@@ -3,10 +3,12 @@ module.exports = ->
   @initConfig
     pkg: @file.readJSON 'package.json'
 
-    bower:
-      install:
+    'bower-install-simple':
+      deps:
         options:
-          copy: false
+          interactive: false
+          forceLatest: false
+          directory: 'bower_components'
 
     # Updating the package manifest files
     noflo_manifest:
@@ -60,7 +62,7 @@ module.exports = ->
           'level': 'ignore'
 
   # Grunt plugins used for building
-  @loadNpmTasks 'grunt-bower-task'
+  @loadNpmTasks 'grunt-bower-install-simple'
   @loadNpmTasks 'grunt-contrib-coffee'
   @loadNpmTasks 'grunt-noflo-manifest'
   @loadNpmTasks 'grunt-noflo-browser'
@@ -73,7 +75,7 @@ module.exports = ->
 
   # Our local tasks
   @registerTask 'build', 'Build NoFlo for the chosen target platform', (target = 'all') =>
-    @task.run 'bower:install'
+    @task.run 'bower-install-simple'
     @task.run 'noflo_manifest'
     @task.run 'noflo_browser'
     @task.run 'uglify'
