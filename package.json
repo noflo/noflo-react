@@ -32,7 +32,7 @@
     "grunt-contrib-watch": "~0.6.1",
     "grunt-noflo-manifest": "~0.1.11",
     "grunt-noflo-browser": "^0.1.1",
-    "grunt-bower-install-simple": "^1.0.2"
+    "grunt-bower-install-simple": "^1.2.2"
   },
   "keywords": [],
   "scripts": {
