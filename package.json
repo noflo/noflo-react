@@ -25,7 +25,7 @@
     "grunt-contrib-coffee": "~0.11.1",
     "grunt-coffeelint": "~0.0.6",
     "grunt-cafe-mocha": "~0.1.2",
-    "chai": "~1.9.0",
+    "chai": "~3.5.0",
     "mocha": "~1.21.0",
     "grunt-mocha-phantomjs": "~0.6.0",
     "grunt-contrib-uglify": "~0.6.0",
