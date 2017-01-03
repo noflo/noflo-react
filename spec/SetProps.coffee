@@ -22,7 +22,7 @@ requirejs ['cs!fixtures/Basic', 'React'], ->
       loader = new noflo.ComponentLoader baseDir
     beforeEach (done) ->
       @timeout 4000
-      loader.load 'react/Mount', (err, instance) ->
+      loader.load 'react/SetProps', (err, instance) ->
         return done err if err
         c = instance
         done()

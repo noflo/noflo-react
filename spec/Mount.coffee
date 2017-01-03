@@ -36,6 +36,7 @@ describe 'Mount component', ->
       chai.expect(c.outPorts.instance).to.be.an 'object'
   describe 'mounting a component', ->
     it 'should be able to create an instance', (done) ->
+      @timeout 4000
       receivedData = false
       instance.on 'data', (data) ->
         chai.expect(data).to.be.an 'object'

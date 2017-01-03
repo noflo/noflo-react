@@ -11,9 +11,4 @@ exports.getReact = (callback) ->
     , (err) ->
       callback err
     return
-  try
-    React = require 'react'
-  catch err
-    callback err
-    return
-  callback null, React
+  return callback new Error "React not found"
