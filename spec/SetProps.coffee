@@ -1,10 +1,10 @@
 noflo = require 'noflo'
-
 unless noflo.isBrowser()
-  chai = require 'chai' unless chai
-  SetProps = require '../components/SetProps.coffee'
+  chai = require 'chai'
+  path = require 'path'
+  baseDir = path.resolve __dirname, '../'
 else
-  SetProps = require 'noflo-react/components/SetProps.js'
+  baseDir = 'noflo-react'
 
 expect = chai.expect unless expect
 
@@ -16,9 +16,16 @@ requirejs ['cs!fixtures/Basic', 'React'], ->
   describe 'SetProps', ->
 
     c = null
+    loader = null
 
-    beforeEach ->
-      c = SetProps.getComponent()
+    before ->
+      loader = new noflo.ComponentLoader baseDir
+    beforeEach (done) ->
+      @timeout 4000
+      loader.load 'react/Mount', (err, instance) ->
+        return done err if err
+        c = instance
+        done()
 
     describe 'inPorts', ->
 
