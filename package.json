@@ -1,7 +1,7 @@
 {
   "name": "noflo-react",
   "description": "Facebook React components for NoFlo",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "Henri Bergius",
     "email": "henri.bergius@iki.fi",
@@ -37,7 +37,8 @@
     "mocha": "^3.2.0"
   },
   "keywords": [
-    "noflo"
+    "noflo",
+    "react"
   ],
   "scripts": {
     "test": "grunt test",
