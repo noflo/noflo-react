@@ -11,31 +11,36 @@
     "type": "git",
     "url": "git://github.com/noflo/noflo-react.git"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "undefined/blob/master/LICENSE-MIT"
-    }
-  ],
+  "license": "MIT",
   "dependencies": {
-    "noflo": "~0.5.0"
+    "noflo": "0.x >= 0.5",
+    "noflo-amd": "^0.1.1",
+    "noflo-core": "^0.2.3",
+    "react": "^0.11.2",
+    "require-cs": "^0.5.4",
+    "requirejs": "^2.3.2"
   },
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-coffee": "~0.11.1",
-    "grunt-coffeelint": "~0.0.6",
-    "grunt-cafe-mocha": "~0.1.2",
-    "chai": "~1.9.0",
-    "mocha": "~1.21.0",
-    "grunt-mocha-phantomjs": "~0.6.0",
-    "grunt-contrib-uglify": "~0.6.0",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-noflo-manifest": "~0.1.11",
-    "grunt-noflo-browser": "^0.1.1",
-    "grunt-bower-install-simple": "^1.0.2"
+    "chai": "^3.5.0",
+    "coffee-loader": "^0.7.2",
+    "coffee-script": "^1.12.2",
+    "fbp-loader": "^0.1.1",
+    "grunt": "^1.0.1",
+    "grunt-coffeelint": "^0.0.16",
+    "grunt-contrib-coffee": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-mocha-phantomjs": "^4.0.0",
+    "grunt-noflo-browser": "^1.0.1",
+    "grunt-noflo-manifest": "^0.1.12",
+    "json-loader": "^0.5.4",
+    "mocha": "^2.4.5"
   },
-  "keywords": [],
+  "keywords": [
+    "noflo"
+  ],
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "postinstall": "./node_modules/.bin/noflo-cache-preheat"
   }
 }
