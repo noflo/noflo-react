@@ -48,5 +48,5 @@ describe 'Mount component', ->
       container.send document.getElementById 'mount'
       container.disconnect()
       requirejs ['cs!fixtures/Basic'], (Basic) ->
-        component.send Basic
+        component.send Basic()
         component.disconnect()

@@ -25,7 +25,7 @@ exports.getComponent = ->
       return callback err if err
 
       try
-        instance = React.renderComponent data.component(), data.container
+        instance = React.renderComponent data.component, data.container
       catch e
         return callback e
       out.send instance

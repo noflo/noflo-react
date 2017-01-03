@@ -8,7 +8,8 @@
   "dependencies": {
     "noflo/noflo": "*",
     "noflo/noflo-amd": "*",
-    "noflo/noflo-core": "*"
+    "noflo/noflo-core": "*",
+    "noflo/noflo-strings": "*"
   },
   "scripts": [
     "lib/load.coffee",
@@ -17,11 +18,13 @@
     "components/Mount.coffee",
     "components/SetProps.coffee",
     "components/Unmount.coffee",
-    "graphs/Render.fbp"
+    "graphs/Render.fbp",
+    "components/ConfigureComponent.coffee"
   ],
   "noflo": {
     "icon": "empire",
     "components": {
+      "ConfigureComponent": "components/ConfigureComponent.coffee",
       "ListenEvents": "components/ListenEvents.coffee",
       "Mount": "components/Mount.coffee",
       "SetProps": "components/SetProps.coffee",

@@ -3,6 +3,7 @@ define [
 ], (React) ->
   {p} = React.DOM
   Basic = React.createClass
+    displayName: 'Flux'
     getDefaultProps: ->
       greeting: 'Hello'
       recipient: 'World'
