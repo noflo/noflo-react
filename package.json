@@ -11,12 +11,7 @@
     "type": "git",
     "url": "git://github.com/noflo/noflo-react.git"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "undefined/blob/master/LICENSE-MIT"
-    }
-  ],
+  "license": "MIT",
   "dependencies": {
     "noflo": "~0.5.0"
   },
@@ -34,7 +29,7 @@
     "grunt-noflo-browser": "^0.1.1",
     "grunt-bower-install-simple": "^1.0.2"
   },
-  "keywords": [],
+  "keywords": ["noflo"],
   "scripts": {
     "test": "grunt test"
   }
