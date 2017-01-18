@@ -1,5 +1,4 @@
-{
-  "name": "noflo-react",
+{ "name": "noflo-react",
   "description": "Facebook React components for NoFlo",
   "version": "0.3.0",
   "author": {
@@ -16,7 +15,7 @@
     "noflo": "^1.0.0",
     "noflo-amd": ">=0.1.1",
     "noflo-core": ">=0.2.3",
-    "react": "^0.11.2",
+    "react": "^0.14.3",
     "require-cs": "^0.5.4",
     "requirejs": "^2.3.2"
   },
