@@ -16,7 +16,14 @@ exports.getComponent = ->
     description: 'Properties to set'
   c.process (input, output) ->
     return unless input.hasData 'instance', 'props'
-    [instance, props] = input.getData 'instance', 'props'
+    instance = input.getData 'instance'
+    unless instance.isMounted()
+      output.done()
+      return
+    props = input.getData 'props'
+    unless typeof props is 'object'
+      output.done()
+      return
     instance.setProps props
     output.done()
     return
