@@ -28,8 +28,7 @@ describe 'Render subgraph', ->
         c.inPorts.props.attach props
         c.outPorts.event.attach event
         c.outPorts.error.attach error
-        c.start()
-        done()
+        c.start done
 
   describe 'rendering a React component', ->
     it 'should be able to transmit events back to NoFlo', (done) ->
