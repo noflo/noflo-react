@@ -7,7 +7,6 @@ module.exports = ->
     noflo_manifest:
       update:
         files:
-          'component.json': ['graphs/*', 'components/*']
           'package.json': ['graphs/*', 'components/*']
 
     # CoffeeScript compilation of tests
@@ -25,7 +24,7 @@ module.exports = ->
     noflo_browser:
       build:
         files:
-          'browser/noflo-react.js': ['component.json']
+          'browser/noflo-react.js': ['package.json']
 
     # JavaScript minification for the browser
     uglify:
