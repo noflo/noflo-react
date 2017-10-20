@@ -34,5 +34,5 @@ exports.getComponent = ->
         output.done e
         return
       output.sendDone
-        out: instance
+        instance: instance
     return

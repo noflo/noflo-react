@@ -24,12 +24,12 @@ exports.getComponent = ->
         events = [events] if typeof events is 'string'
         for event in events
           output.send
-            out: new noflo.IP 'openBracket', event
-        out.send
-          out: payload
+            event: new noflo.IP 'openBracket', event
+        output.send
+          event: payload
         closes = events.slice 0
         closes.reverse()
         for event in closes
           output.send
-            out: new noflo.IP 'closeBracket', event
+            event: new noflo.IP 'closeBracket', event
     c.subscribed[input.scope] = context
