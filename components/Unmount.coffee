@@ -15,16 +15,13 @@ exports.getComponent = ->
   c.outPorts.add 'error',
     datatype: 'object'
     required: false
-
-  noflo.helpers.MapComponent c, (data, groups, out) ->
+  c.process (input, output) ->
+    return unless input.hasData 'container'
+    container = input.getData 'container'
     load.getReact (err, React) ->
       if err
-        c.outPorts.error.send err
-        c.outPorts.error.disconnect()
+        output.done err
         return
-      out.send React.unmountComponentAtNode data
-  ,
-    inPort: 'container'
-    outPort: 'unmounted'
-
-  c
+      output.sendDone
+        unmontainer: React.unmountComponentAtNode container
+    return
