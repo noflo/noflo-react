@@ -39,6 +39,9 @@
     "noflo",
     "react"
   ],
+  "noflo": {
+    "icon": "empire"
+  },
   "scripts": {
     "test": "grunt test",
     "postinstall": "./node_modules/.bin/noflo-cache-preheat"
