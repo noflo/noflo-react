@@ -1,4 +1,5 @@
 # @runtime noflo-browser
+# @description Mount a React component and allow communicating via props and events
 INPORT=Load.PATH:MODULE
 INPORT=Mount.CONTAINER:CONTAINER
 INPORT=Props.PROPS:PROPS
