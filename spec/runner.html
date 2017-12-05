@@ -13,30 +13,20 @@
   <body>
     <div id="mocha"></div>
     <div id="fixtures">
-      <div id="mount"></div>
       <div id="render"></div>
     </div>
+    <script src="../node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="../browser/noflo-react.js"></script>
     <script src="../node_modules/chai/chai.js"></script>
     <script src="../node_modules/mocha/mocha.js"></script>
     <script src="../node_modules/requirejs/require.js"></script>
-    <script src="../browser/noflo-react.js"></script>
     <script>
       requirejs.config({
         packages: [
           {
-            name: 'cs',
-            location: '../node_modules/require-cs',
-            main: 'cs'
-          },
-          {
-            name: 'coffee-script',
-            location: 'http://coffeescript.org/v1',
-            main: 'browser-compiler/coffee-script'
-          },
-          {
-            name: 'React',
-            location: '../node_modules/react/dist',
-            main: 'react'
+            name: 'react',
+            location: '../node_modules/react/umd',
+            main: 'react.production.min'
           }
         ]
       });
@@ -47,9 +37,7 @@
       }
       mocha.setup('bdd');
     </script>
-    <script src="./Mount.js"></script>
     <script src="./Render.js"></script>
-    <script src="./SetProps.js"></script>
     <script>
       mocha.run();
     </script>

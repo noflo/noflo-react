@@ -1,4 +1,5 @@
-{ "name": "noflo-react",
+{
+  "name": "noflo-react",
   "description": "Facebook React components for NoFlo",
   "version": "0.3.0",
   "author": {
@@ -15,19 +16,17 @@
     "noflo": "^1.0.0",
     "noflo-amd": ">=0.1.1",
     "noflo-core": ">=0.2.3",
-    "react": "^0.11.2",
-    "require-cs": "^0.5.4",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "requirejs": "^2.3.2"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
+    "chai": "^4.0.0",
+    "es6-shim": "^0.35.3",
     "grunt": "^1.0.1",
-    "grunt-coffeelint": "^0.0.16",
-    "grunt-contrib-coffee": "^1.0.0",
-    "grunt-contrib-watch": "^1.0.0",
     "grunt-mocha-phantomjs": "^4.0.0",
     "grunt-noflo-browser": "^1.5.0",
-    "mocha": "^3.2.0"
+    "mocha": "^4.0.0"
   },
   "keywords": [
     "noflo",
