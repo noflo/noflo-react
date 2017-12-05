@@ -1,7 +1,7 @@
 {
   "name": "noflo-react",
   "description": "Facebook React components for NoFlo",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": {
     "name": "Henri Bergius",
     "email": "henri.bergius@iki.fi",
@@ -17,8 +17,7 @@
     "noflo-amd": ">=0.1.1",
     "noflo-core": ">=0.2.3",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "requirejs": "^2.3.2"
+    "react-dom": "^16.2.0"
   },
   "devDependencies": {
     "chai": "^4.0.0",
