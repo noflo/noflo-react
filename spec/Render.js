@@ -31,44 +31,39 @@ describe('Render subgraph', function() {
 
   describe('rendering a React component', function () {
     after(function (done) {
-      return done();
       c.tearDown(done);
     });
     it('should be able to transmit events back to NoFlo', function(done) {
       var expected = [{
         greeting: 'Terve',
         recipient: 'Maailma'
-      }
-      , {
+      }, {
         greeting: 'Hallo',
         recipient: 'Welt'
-      }
-      , {
+      }, {
         greeting: 'Hello',
         recipient: 'World'
-      }
-      , {
+      }, {
         greeting: 'Здраво',
         recipient: 'свете'
       }
       ];
       var expectedProps = null;
-      error.on('data', function (data) { done(data) });
+      error.on('data', function (data) { done(data); });
       event.on('data', function(data) {
         chai.expect(data).to.eql(expectedProps);
         setTimeout(function() {
           var mountpoint = document.querySelector('#render p');
-          chai.expect(mountpoint.innerText).to.equal(`${expectedProps.greeting}, ${expectedProps.recipient}!`);
+          chai.expect(mountpoint.innerText).to.equal(expectedProps.greeting + ', ' + expectedProps.recipient + '!');
           if (!expected.length) { return done(); }
           expectedProps = expected.shift();
           props.send(JSON.parse(JSON.stringify(expectedProps)));
-        }
-        , 1);
+        }, 1);
       });
       module.send('fixtures/Flux');
       container.send(document.getElementById('render'));
       expectedProps = expected.shift();
       props.send(JSON.parse(JSON.stringify(expectedProps)));
-    })
+    });
   });
 });
