@@ -22,7 +22,6 @@ module.exports = ->
 
   # Grunt plugins used for testing
   @loadNpmTasks 'grunt-mocha-phantomjs'
-  @loadNpmTasks 'grunt-coffeelint'
 
   # Our local tasks
   @registerTask 'build', 'Build NoFlo for the chosen target platform', (target = 'all') =>
