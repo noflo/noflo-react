@@ -1,0 +1,13 @@
+# @runtime noflo-browser
+# @description Mount a Require.js-loadable React component and allow communicating via props and events
+INPORT=Load.PATH:MODULE
+INPORT=Render.CONTAINER:CONTAINER
+INPORT=Render.PROPS:PROPS
+OUTPORT=Render.EVENT:EVENT
+OUTPORT=Errors.OUT:ERROR
+
+Load(amd/Require) MODULE -> COMPONENT Render(react/RenderComponent)
+
+# Error handling
+Load ERROR -> IN Errors(core/Merge)
+Render ERROR -> IN Errors
