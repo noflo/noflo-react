@@ -1,25 +1,19 @@
-const noflo = require('noflo');
+var noflo = require('noflo');
 
 describe('Render subgraph', function() {
-  let c = null;
-  let module = null;
-  let container = null;
-  let props = null;
-  let event = null;
-  let error = null;
+  var c = null;
+  var module = null;
+  var container = null;
+  var props = null;
+  var event = null;
+  var error = null;
   beforeEach(function(done) {
     this.timeout(10000);
-    const loader = new noflo.ComponentLoader('/noflo-react');
-    return loader.load('react/Render', function(err, instance) {
+    var loader = new noflo.ComponentLoader('/noflo-react');
+    loader.load('react/Render', function(err, instance) {
       if (err) { return done(err); }
       c = instance;
-      return c.once('ready', function() {
-        c.network.on('process-error', err =>
-          setTimeout(function() {
-            throw err.error || err;
-          }
-          , 1)
-        );
+      c.once('ready', function () {
         module = noflo.internalSocket.createSocket();
         container = noflo.internalSocket.createSocket();
         props = noflo.internalSocket.createSocket();
@@ -30,14 +24,18 @@ describe('Render subgraph', function() {
         c.inPorts.props.attach(props);
         c.outPorts.event.attach(event);
         c.outPorts.error.attach(error);
-        return c.start(done);
+        c.start(done);
       });
     });
   });
 
-  return describe('rendering a React component', () =>
+  describe('rendering a React component', function () {
+    after(function (done) {
+      return done();
+      c.tearDown(done);
+    });
     it('should be able to transmit events back to NoFlo', function(done) {
-      const expected = [{
+      var expected = [{
         greeting: 'Terve',
         recipient: 'Maailma'
       }
@@ -54,22 +52,23 @@ describe('Render subgraph', function() {
         recipient: 'свете'
       }
       ];
-      let expectedProps = null;
-      error.on('data', data => done(data));
+      var expectedProps = null;
+      error.on('data', function (data) { done(data) });
       event.on('data', function(data) {
         chai.expect(data).to.eql(expectedProps);
-        return setTimeout(function() {
-          chai.expect(document.querySelector('#render p span').innerText).to.equal(`${expectedProps.greeting}, ${expectedProps.recipient}!`);
+        setTimeout(function() {
+          var mountpoint = document.querySelector('#render p');
+          chai.expect(mountpoint.innerText).to.equal(`${expectedProps.greeting}, ${expectedProps.recipient}!`);
           if (!expected.length) { return done(); }
           expectedProps = expected.shift();
-          return props.send(JSON.parse(JSON.stringify(expectedProps)));
+          props.send(JSON.parse(JSON.stringify(expectedProps)));
         }
         , 1);
       });
-      module.send('cs!fixtures/Flux');
+      module.send('fixtures/Flux');
       container.send(document.getElementById('render'));
       expectedProps = expected.shift();
-      return props.send(JSON.parse(JSON.stringify(expectedProps)));
+      props.send(JSON.parse(JSON.stringify(expectedProps)));
     })
-  );
+  });
 });

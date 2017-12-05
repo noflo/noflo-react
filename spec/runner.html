@@ -24,19 +24,9 @@
       requirejs.config({
         packages: [
           {
-            name: 'cs',
-            location: '../node_modules/require-cs',
-            main: 'cs'
-          },
-          {
-            name: 'coffee-script',
-            location: 'http://coffeescript.org/v1',
-            main: 'browser-compiler/coffee-script'
-          },
-          {
-            name: 'React',
-            location: '../node_modules/react/dist',
-            main: 'react'
+            name: 'react',
+            location: '../node_modules/react/umd',
+            main: 'react.production.min'
           }
         ]
       });
@@ -47,9 +37,7 @@
       }
       mocha.setup('bdd');
     </script>
-    <script src="./Mount.js"></script>
     <script src="./Render.js"></script>
-    <script src="./SetProps.js"></script>
     <script>
       mocha.run();
     </script>
