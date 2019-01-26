@@ -24,7 +24,7 @@
     "es6-shim": "^0.35.3",
     "grunt": "^1.0.1",
     "grunt-mocha-phantomjs": "^4.0.0",
-    "grunt-noflo-browser": "^1.5.0",
+    "grunt-noflo-browser": "1.6.0",
     "mocha": "^5.0.0"
   },
   "keywords": [
